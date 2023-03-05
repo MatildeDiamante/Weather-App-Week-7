@@ -1,5 +1,5 @@
 function formatDate(timestamp) {
-  // calculate the date (times 1000= the milliseconds from 1978)
+  // calculate the date (* 1000= the milliseconds from 1970)
   let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
@@ -40,6 +40,14 @@ function displayTemperature(response) {
 
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "46108c2f44aed2b9456dfc37c161b607";

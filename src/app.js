@@ -43,6 +43,7 @@ function displayTemperature(response) {
 }
 
 let apiKey = "46108c2f44aed2b9456dfc37c161b607";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Udine&appid=${apiKey}&units=metric`;
+let city = "Udine";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
